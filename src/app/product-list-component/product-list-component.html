@@ -1,1 +1,10 @@
-<p>product-list-component works!</p>
+@for (product of products(); track product.id) {
+  <div class="product-card">
+    <!-- <img [src]="product.image" [alt]="product.name"> -->
+    <h3>{{ product.name }}</h3>
+    <p>Preis: {{ product.price }} CHF</p>
+    <button [routerLink]="['/products', product.id]">Details ansehen</button>
+  </div>
+} @empty {
+  <p>Momentan sind keine Produkte verfügbar.</p>
+}
