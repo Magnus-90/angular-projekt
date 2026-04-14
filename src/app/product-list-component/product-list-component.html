@@ -1,3 +1,17 @@
+<button (click)="categoryService.clearSelection()">Alle</button>
+@for (category of categoryService.categories(); track category.id) {
+  <button
+    (click)="categoryService.selectCategory(category.id)"
+    [class.selected]="categoryService.selectedCategoryId() === category.id"
+  >
+    {{ category.name }}
+  </button>
+}
+
+<br />
+
+<button (click)="SortLowToHigh()">Preis Aufsteigend</button>
+<button (click)="SortHighToLow()">Preis Absteigend</button>
 @for (product of products(); track product.id) {
   <div class="product-card">
     <!-- <img [src]="product.image" [alt]="product.name"> -->
