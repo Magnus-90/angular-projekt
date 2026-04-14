@@ -1,2 +1,18 @@
 <p>cart-component works!</p>
+<ul>
+  @for (item of cartService.cartItems(); track item.id) {
+    <li>
+      {{ item.product.name }} – {{ item.totalprice }} CHF  Menge:{{ item.quantity }}
+      <br>
+      <button (click)="cartService.removeFromCart(item.product.id)">Entfernen</button>
+    </li>
+  } @empty {
+    <li>Der Warenkorb ist noch leer.</li>
+  }
+</ul>
+<a>Gesamtpreis: {{ cartService.getTotalPrice() }} CHF</a>
+<br />
+<button (click)="cartService.clearCart()" [disabled]="cartService.cartItems().length === 0">
+  Warenkorb leeren
+</button>
 <button [routerLink]="['/checkout']">Kauf abschliessen</button>
