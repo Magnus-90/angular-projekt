@@ -1,7 +1,15 @@
-<nav>
-    <a routerLink="/">Home</a>
-    <a routerLink="/products">Produkte</a>
-    <a routerLink="/cart">Warenkorb</a>
-</nav>
-
-<router-outlet></router-outlet>
+<div class="header">
+  <div class="left">
+    <h2>Online Shop</h2>
+    <nav>
+      <a routerLink="/">Home</a>
+      <a routerLink="/products">Produkte</a>
+      <a routerLink="/cart">🛒</a>
+    </nav>
+  </div>
+  <span class="page-title">
+    @if (router.url === '/') { Home }
+    @if (router.url === '/products') { Produkte }
+    @if (router.url === '/cart') { Warenkorb }
+  </span>
+</div>

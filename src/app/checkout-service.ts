@@ -11,7 +11,7 @@ export class CheckoutService {
   confirmOrder(costumerData: {name: string; email: string; address: string;}){
     if (this.cartService.cartItems().length === 0){
       this.notificationService.show("Dein Warenkorb ist leer");
-      return;
+      return false;
     }
     if (costumerData.name.length < 3){
       this.notificationService.show("Bitte gib einen gültigen Namen ein.");
@@ -19,9 +19,11 @@ export class CheckoutService {
     }
     if (!costumerData.email.includes('@')){
       this.notificationService.show("Deine E-Mail Adresse ist ungültig");
-      return;
+      return false;
     }
     this.cartService.clearCart();
-    this.notificationService.show("Deine Bestellung war erfolgreich");
+    //TODO: evlt. könnte man hier so wie ein ein Confirm Screen machen in irgend einer Art.
+    this.notificationService.show("Deine Bestellung war erfolgreich. Sie werden nun auf die Startseite weitergeleitet.");
+    return true;
   }
 }

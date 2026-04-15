@@ -5,6 +5,7 @@ export interface Product {
     description: string;
     image: string;
     category: Category;
+    bestseller: boolean;
 }
 
 export interface Category {

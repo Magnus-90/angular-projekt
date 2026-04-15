@@ -1,8 +1,9 @@
-<h2>Webshop</h2>
-<app-navbar-component></app-navbar-component>
-@if ( notification.message()) {
-    <div class="notification-banner">
-        {{ notification.message() }}
-    </div>
+<div class="navbar">
+  <app-navbar-component></app-navbar-component>
+</div>
+@if (notification.message()) {
+  <div class="notification-banner">
+    {{ notification.message() }}
+  </div>
 }
 <router-outlet></router-outlet>

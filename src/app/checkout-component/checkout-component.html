@@ -1,1 +1,17 @@
-<p>checkout-component works!</p>
+<input [(ngModel)]="firstName" placeholder="First Name" />
+<br />
+<input [(ngModel)]="lastName" placeholder="Last Name" />
+<br />
+<input [(ngModel)]="email" placeholder="E-Mail" />
+<br />
+<input [(ngModel)]="address" placeholder="Address" />
+<br />
+<fieldset>
+  <legend>Wählen sie eine Zahlungsmethode</legend>
+  <a>Zahlungsmethoden</a>
+  <br />
+  <input type="radio" name="auswahl" /> <label for="">Kreditkarte</label>
+  <input type="radio" name="auswahl" /> <label for="">PayPal</label>
+</fieldset>
+<br />
+<button (click)="confirmOrder()">Bestellen</button>

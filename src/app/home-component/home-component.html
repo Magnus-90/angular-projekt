@@ -1,2 +1,22 @@
-<p>home-component works!</p>
-<button (click)="testNotification()">NotificationService Test</button>
+<div class="home">
+  <p class="online-shop-name">Online Shop Name</p>
+  <img class="online-shop-logo" src="retail-store-icon.png" alt="logo" />
+  <div class="welcome-text">
+    <p>Willkommenstext</p>
+  </div>
+  <!-- <button (click)="testNotification()">NotificationService Test</button> -->
+</div>
+<div class="bestseller">
+  <p class="bestseller-text">Bestseller:</p>
+  <div class="bestseller-products">
+    @for (product of bestsellers(); track product.id) {
+      <div class="card">
+        <p>{{ product.name }}</p>
+        <img [src]="product.image" alt="image" />
+        <button [routerLink]="['/products', product.id]">Details ansehen</button>
+      </div>
+    } @empty {
+      <p>Aktuell sind keine Bestseller verfügbar.</p>
+    }
+  </div>
+</div>

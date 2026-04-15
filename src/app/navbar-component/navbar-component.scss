@@ -1,0 +1,28 @@
+a {
+  text-decoration: none;
+  color: black;
+  margin: 10px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 15px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.page-title {
+  text-align: center;
+}
+
+span {
+  font-size: 25px;
+}

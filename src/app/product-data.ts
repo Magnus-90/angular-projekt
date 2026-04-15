@@ -3,26 +3,29 @@ import { Product } from "./Interfaces/interface";
 export const PRODUCTS: Product[] = [
   {
     id: 1,
-    name: 'Test Produkt 1 (Indoor)',
+    name: 'Lampe (Indoor)',
     price: 899,
     description: '',
-    image: '',
-    category: { id: 1, name: 'Indoor' }
+    image: 'lampe.jpg',
+    category: { id: 1, name: 'Indoor' },
+    bestseller: true,
   },
   {
     id: 2,
-    name: 'Test Produkt 2 (Outdoor)',
+    name: 'Rucksack (Outdoor)',
     price: 49,
     description: '',
-    image: '',
-    category: { id: 2, name: 'Outdoor' }
+    image: 'rucksack.jpg',
+    category: { id: 2, name: 'Outdoor' },
+    bestseller: true,
   },
   {
     id: 3,
-    name: 'Test Produkt 3 (Multimedia)',
+    name: 'Beamer (Multimedia)',
     price: 499,
     description: '',
-    image: '',
-    category: { id: 3, name: 'Multimedia' }
+    image: 'beamer.png',
+    category: { id: 3, name: 'Multimedia' },
+    bestseller: true,
   }
 ]
