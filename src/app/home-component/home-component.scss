@@ -2,8 +2,7 @@
   display: grid;
   grid-template-areas:
     'online-shop-name online-shop-logo'
-    'welcome-text welcome-text'
-    'bestseller-text bestseller-text';
+    'welcome-text welcome-text';
   margin-left: 15px;
   justify-items: center;
   align-items: center;
@@ -27,10 +26,13 @@
   background-color: lightgray;
   border-radius: 8px;
   padding: 10px;
-  width: 50%;
+  width: 60%;
   grid-area: welcome-text;
   justify-items: center;
   margin-top: 32px;
+  word-spacing: 3px;
+  line-height: 1.5;
+  font-size: 20px;
 }
 .card {
   display: grid;
@@ -40,26 +42,41 @@
   gap: 3rem;
   margin-top: 20px;
   width: 100%;
+  p {
+    font-size: 24px;
+  }
+  button {
+    height: 24px;
+    border-radius: 8px;
+    border: 0.5px black solid;
+    &:hover {
+      background-color: aliceblue;
+    }
+    &:active {
+      background-color: lightgray;
+    }
+  }
 }
-.card img{
+.card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-radius: 4px;
 }
-.bestseller{
-    margin-left: 10vw;
-    margin-right: 10vw;
+.bestseller {
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 .bestseller-text {
   grid-area: bestseller-text;
-  margin-top: 20px;
+  margin-top: 32px;
+  margin-bottom: 32px;
   font-size: 32px;
 }
 .bestseller-products {
   display: grid;
   grid-area: bestseller-products;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   justify-items: center;
   gap: 20px;
   margin-bottom: 20px;

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { NotificationService } from '../notification-service';
 import { ProductService } from '../product-service';
 import { RouterLink } from '@angular/router';
@@ -13,7 +13,12 @@ export class HomeComponent {
   private ns = inject(NotificationService);
   private productService = inject(ProductService);
   bestsellers = this.productService.bestsellers;
-  testNotification() {
+  notification() {
     this.ns.show('Willkommen im Webshop!');
   }
+  @HostListener('window:load')
+  onLoad() {
+    this.ns.show('Willkommen im InOut Media Store! Stöbern Sie in unserem umfassenden Sortiement und lassen Sie sich von den fantastischen preisen überzeugen.');
+  }
 }
+

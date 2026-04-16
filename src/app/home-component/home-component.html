@@ -1,10 +1,16 @@
 <div class="home">
-  <p class="online-shop-name">Online Shop Name</p>
-  <img class="online-shop-logo" src="retail-store-icon.png" alt="logo" />
+  <p class="online-shop-name">InOut Media Store</p>
+  <img class="online-shop-logo" src="online-shop-logo.png" alt="logo" />
   <div class="welcome-text">
-    <p>Willkommenstext</p>
+    <p>
+      Willkommen bei InOut Media Store, deinem All in One Shop für alles, was dein Leben drinnen wie
+      draussen bereichert. Entdecke hochwertige Produkte für dein Zuhause, praktische Outdoor
+      Ausrüstung und innovative Multimedia Lösungen, alles an einem Ort. Egal ob du entspannen,
+      erleben oder vernetzen möchtest: Wir bringen Komfort, Abenteuer und Technik zusammen. Lass
+      dich inspirieren und finde genau das, was zu deinem Lifestyle passt.
+    </p>
   </div>
-  <!-- <button (click)="testNotification()">NotificationService Test</button> -->
+  <!-- <button (click)="notification()">NotificationService Test</button> -->
 </div>
 <div class="bestseller">
   <p class="bestseller-text">Bestseller:</p>
@@ -12,8 +18,8 @@
     @for (product of bestsellers(); track product.id) {
       <div class="card">
         <p>{{ product.name }}</p>
-        <img [src]="product.image" alt="image" />
-        <button [routerLink]="['/products', product.id]">Details ansehen</button>
+        <img [src]="product.image" alt="image product.image" />
+        <button [routerLink]="['/products', product.id]">Details anzeigen</button>
       </div>
     } @empty {
       <p>Aktuell sind keine Bestseller verfügbar.</p>

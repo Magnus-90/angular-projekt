@@ -46,7 +46,6 @@ export class ProductService {
   function(this: ProductService) {
     const allProducts = this.products();
     return allProducts.filter(function(product) {
-      // Nutzt das neue Property aus deinem Interface
       return product.bestseller; 
     });
   }.bind(this)

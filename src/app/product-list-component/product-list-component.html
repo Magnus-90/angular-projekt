@@ -1,25 +1,30 @@
-<button (click)="categoryService.clearSelection()">Alle</button>
-@for (category of categoryService.categories(); track category.id) {
-  <button
-    (click)="categoryService.selectCategory(category.id)"
-    [class.selected]="categoryService.selectedCategoryId() === category.id"
-  >
-    {{ category.name }}
-  </button>
-}
-
-<br />
-
-<button (click)="SortLowToHigh()">Preis Aufsteigend</button>
-<button (click)="SortHighToLow()">Preis Absteigend</button>
-@for (product of products(); track product.id) {
-  <div class="product-card">
-    <!-- <img [src]="product.image" [alt]="product.name"> -->
-    <h3>{{ product.name }}</h3>
-    <p>Preis: {{ product.price }} CHF</p>
-    <button [routerLink]="['/products', product.id]">Details ansehen</button>
-    <button (click)="AddToCart(product)">Zum Warenkorb hinzufügen</button>
+<div class="list">
+  <h3>Kategorien</h3>
+  <div class="buttons">
+    <button (click)="categoryService.clearSelection()">Alle</button>
+    @for (category of categoryService.categories(); track category.id) {
+      <button
+        (click)="categoryService.selectCategory(category.id)"
+        [class.selected]="categoryService.selectedCategoryId() === category.id"
+      >
+        {{ category.name }}
+      </button>
+    }
+    <button (click)="SortLowToHigh()">Preis Aufsteigend</button>
+    <button (click)="SortHighToLow()">Preis Absteigend</button>
   </div>
-} @empty {
-  <p>Momentan sind keine Produkte verfügbar.</p>
-}
+  <br />
+  <div class="products">
+    @for (product of products(); track product.id) {
+      <div class="card">
+        <h3>{{ product.name }}</h3>
+        <img [src]="product.image" [alt]="product.name" />
+        <p>Preis: {{ product.price }} CHF</p>
+        <button [routerLink]="['/products', product.id]">Details ansehen</button>
+        <button (click)="AddToCart(product)">Zum Warenkorb hinzufügen</button>
+      </div>
+    } @empty {
+      <p>Momentan sind keine Produkte verfügbar.</p>
+    }
+  </div>
+</div>
