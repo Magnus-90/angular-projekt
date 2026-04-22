@@ -10,15 +10,15 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home-component.scss',
 })
 export class HomeComponent {
-  private ns = inject(NotificationService);
+  private notificationService = inject(NotificationService);
   private productService = inject(ProductService);
   bestsellers = this.productService.bestsellers;
   notification() {
-    this.ns.show('Willkommen im Webshop!');
+    this.notificationService.show('Willkommen im Webshop!');
   }
   @HostListener('window:load')
   onLoad() {
-    this.ns.show('Willkommen im InOut Media Store! Stöbern Sie in unserem umfassenden Sortiement und lassen Sie sich von den fantastischen preisen überzeugen.');
+    this.notificationService.show('Willkommen im InOut Media Store! Stöbern Sie in unserem umfassenden Sortiement und lassen Sie sich von den fantastischen preisen überzeugen.');
   }
 }
 

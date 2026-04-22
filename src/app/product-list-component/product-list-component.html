@@ -1,5 +1,8 @@
 <div class="list">
   <h3>Kategorien</h3>
+    @if (categoryService.selectedCategoryName()) {
+      <h4>Aktuelle Kategorie: {{categoryService.selectedCategoryName()}}</h4>
+    }
   <div class="buttons">
     <button (click)="categoryService.clearSelection()">Alle</button>
     @for (category of categoryService.categories(); track category.id) {
@@ -19,7 +22,7 @@
       <div class="card">
         <h3>{{ product.name }}</h3>
         <img [src]="product.image" [alt]="product.name" />
-        <p>Preis: {{ product.price }} CHF</p>
+        <p>Preis: <strong>{{ product.price }} CHF</strong></p>
         <button [routerLink]="['/products', product.id]">Details ansehen</button>
         <button (click)="AddToCart(product)">Zum Warenkorb hinzufügen</button>
       </div>
