@@ -20,7 +20,14 @@ nav a {
 }
 
 .page-title {
+  display: none;
   text-align: center;
+}
+
+@media screen and (min-width: 700px) {
+  .page-title{
+    display: inline;
+  }
 }
 
 span {

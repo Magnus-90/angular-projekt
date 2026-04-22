@@ -30,7 +30,7 @@ export class ProductListComponent {
   }
   AddToCart(product: Product){
     this.cartservice.addToCart(product);
-    console.log('Warenkorb Stand:', this.cartservice.cartItems());
+    // console.log('Warenkorb Stand:', this.cartservice.cartItems());
     this.notificationAddtoCart();
   }
 }

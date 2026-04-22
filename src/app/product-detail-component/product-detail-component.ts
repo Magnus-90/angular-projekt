@@ -9,8 +9,8 @@ import { NotificationService } from '../notification-service';
 @Component({
   selector: 'app-product-deteil-component',
   imports: [],
-  templateUrl: './product-deteil-component.html',
-  styleUrl: './product-deteil-component.scss',
+  templateUrl: './product-detail-component.html',
+  styleUrl: './product-detail-component.scss',
 })
 export class ProductDeteilComponent {
   private route = inject(ActivatedRoute);

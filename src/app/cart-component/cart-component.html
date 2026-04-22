@@ -1,17 +1,34 @@
-<ul>
-  @for (item of cartService.cartItems(); track item.id) {
-    <li>
-      {{ item.product.name }} – {{ item.totalprice }} CHF  Menge:{{ item.quantity }}
-      <br>
-      <button (click)="cartService.removeFromCart(item.product.id)">Entfernen</button>
-    </li>
-  } @empty {
-    <li>Der Warenkorb ist noch leer.</li>
-  }
-</ul>
-<a>Gesamtpreis: {{ cartService.getTotalPrice() }} CHF</a>
+<h2>Produkte</h2>
+<div class="cart-list">
+  <ul>
+    @for (item of cartService.cartItems(); track item.id) {
+        <li class="cart-item">
+          <img
+            src="{{ item.product.image }}"
+            alt="image of{{ item.product.name }}"
+            width="70"
+            height="70"
+            class="item-image"
+          />
+          <a class="itam-name">{{ item.product.name }}</a>
+          <a class="item-totalprice">{{ item.totalprice }} CHF</a>
+          <a class="item-quantity">Menge: {{ item.quantity }}</a>
+          <br />
+          <button class="cart-button-remove" (click)="cartService.removeFromCart(item.product.id)">
+            -
+          </button>
+          <button class="cart-button-add" (click)="cartService.addToCart(item.product)">+</button>
+        </li>
+    } @empty {
+      <li>Der Warenkorb ist noch leer.</li>
+    }
+  </ul>
+</div>
+<a><strong>Gesamtpreis:</strong>{{ cartService.getTotalPrice() }} CHF</a>
 <br />
-<button (click)="cartService.clearCart()" [disabled]="cartService.cartItems().length === 0">
+<button class="button-clear-cart" (click)="cartService.clearCart()" [disabled]="cartService.cartItems().length === 0">
   Warenkorb leeren
 </button>
-<button [routerLink]="['/checkout']">Kauf abschliessen</button>
+<button class="button-checkout" [routerLink]="['/checkout']" [disabled]="cartService.cartItems().length === 0">
+  Kauf abschliessen
+</button>

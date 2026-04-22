@@ -21,6 +21,8 @@
   align-content: center;
   background-color: lightgray;
   grid-area: product-details;
+  border-radius: 8px;
+  border: 1px solid black;
   h3{
     font-size: 25px;
   }
@@ -38,6 +40,7 @@
     width: 50vw;
     object-fit: cover;
     border: 1px solid black;
+    border-radius: 8px;
   }
 }
 
@@ -54,6 +57,14 @@
   button {
     height: 35px;
     font-size: 25px;
+    border-radius: 8px;
+    border: 1px black solid;
+    &:hover {
+      background-color: aliceblue;
+    }
+    &:active {
+      background-color: lightgray;
+    }
   }
 }
 
