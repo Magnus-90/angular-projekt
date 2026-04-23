@@ -1,0 +1,45 @@
+* {
+  margin: 15px;
+}
+
+.checkout {
+  width: 40%;
+}
+
+.checkout-title {
+  font-size: 35px;
+}
+
+.checkout-form {
+  input {
+    margin: 5px;
+    height: 35px;
+    width: 100%;
+    font-size: 20px;
+  }
+}
+
+.checkout-paymentmethod-title,
+.checkout-paymentmethod-subtitle {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 850px) {
+  .checkout {
+    width: 90%;
+  }
+}
+
+.checkout-confirm-button {
+  height: 40px;
+  width: 100px;
+  border: 1px solid black;
+  border-radius: 8px;
+  font-size: 15px;
+  &:hover {
+    background-color: aliceblue;
+  }
+  &:active {
+    background-color: lightgray;
+  }
+}

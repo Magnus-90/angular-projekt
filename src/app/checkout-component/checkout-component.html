@@ -1,17 +1,28 @@
-<input [(ngModel)]="firstName" placeholder="First Name" />
-<br />
-<input [(ngModel)]="lastName" placeholder="Last Name" />
-<br />
-<input [(ngModel)]="email" placeholder="E-Mail" />
-<br />
-<input [(ngModel)]="address" placeholder="Address" />
-<br />
-<fieldset>
-  <legend>Wählen sie eine Zahlungsmethode</legend>
-  <a>Zahlungsmethoden</a>
+<div class="checkout">
+  <a class="checkout-title">Kontakt Formular:</a>
+  <div class="checkout-form">
+    <input [(ngModel)]="firstName" placeholder="Vorname" />
+    <br />
+    <input [(ngModel)]="lastName" placeholder="Nachname" />
+    <br />
+    <input [(ngModel)]="email" placeholder="E-Mail" />
+    <br />
+    <input [(ngModel)]="address" placeholder="Addresse" />
+    <br />
+  </div>
+  <fieldset>
+    <legend class="checkout-paymentmethod-title">Wählen sie eine Zahlungsmethode</legend>
+    <a class="checkout-paymentmethod-subtitle">Zahlungsmethoden</a>
+    <br />
+    <input [(ngModel)]="paymentmethod" type="radio" name="auswahl" value="kreditcard" />
+    <label for="">Kreditkarte</label>
+    <input [(ngModel)]="paymentmethod" type="radio" name="auswahl" value="paypal" />
+    <label for="">PayPal</label>
+  </fieldset>
   <br />
-  <input type="radio" name="auswahl" /> <label for="">Kreditkarte</label>
-  <input type="radio" name="auswahl" /> <label for="">PayPal</label>
-</fieldset>
-<br />
-<button (click)="confirmOrder()">Bestellen</button>
+  <a
+    >Gesamtpreis: <strong>{{ cartService.getTotalPrice() }} CHF</strong></a
+  >
+  <br />
+  <button class="checkout-confirm-button" (click)="confirmOrder()">Bestellen</button>
+</div>
