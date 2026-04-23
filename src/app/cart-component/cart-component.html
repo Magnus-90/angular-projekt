@@ -1,24 +1,33 @@
 <h2>Produkte</h2>
 <div class="cart-list">
+  @if (cartService.cartItems().length > 0) {
+    <div class="item-legend">
+      <a>Foto</a>
+      <a>Produkt Name</a>
+      <a>Preis</a>
+      <a>Menge</a>
+    </div>
+  }
   <ul>
     @for (item of cartService.cartItems(); track item.id) {
-        <li class="cart-item">
-          <img
-            src="{{ item.product.image }}"
-            alt="image of{{ item.product.name }}"
-            width="70"
-            height="70"
-            class="item-image"
-          />
-          <a class="itam-name">{{ item.product.name }}</a>
-          <a class="item-totalprice">{{ item.totalprice }} CHF</a>
-          <a class="item-quantity">Menge: {{ item.quantity }}</a>
-          <br />
-          <button class="cart-button-remove" (click)="cartService.removeFromCart(item.product.id)">
-            -
-          </button>
-          <button class="cart-button-add" (click)="cartService.addToCart(item.product)">+</button>
-        </li>
+      <li class="cart-item">
+        <img
+          src="{{ item.product.image }}"
+          alt="image of{{ item.product.name }}"
+          width="70"
+          height="70"
+          class="item-image"
+        />
+        <a class="itam-name">{{ item.product.name }}</a>
+        <a class="item-totalprice">{{ item.totalprice }} CHF</a>
+        <a class="item-quantity">{{ item.quantity }}</a>
+        <br />
+        <button class="cart-button-remove" (click)="cartService.removeFromCart(item.product.id)">
+          -
+        </button>
+        <button class="cart-button-add" (click)="cartService.addToCart(item.product)">+</button>
+      </li>
+      <hr />
     } @empty {
       <li>Der Warenkorb ist noch leer.</li>
     }
@@ -26,9 +35,17 @@
 </div>
 <a><strong>Gesamtpreis:</strong>{{ cartService.getTotalPrice() }} CHF</a>
 <br />
-<button class="button-clear-cart" (click)="cartService.clearCart()" [disabled]="cartService.cartItems().length === 0">
+<button
+  class="button-clear-cart"
+  (click)="cartService.clearCart()"
+  [disabled]="cartService.cartItems().length === 0"
+>
   Warenkorb leeren
 </button>
-<button class="button-checkout" [routerLink]="['/checkout']" [disabled]="cartService.cartItems().length === 0">
+<button
+  class="button-checkout"
+  [routerLink]="['/checkout']"
+  [disabled]="cartService.cartItems().length === 0"
+>
   Kauf abschliessen
 </button>

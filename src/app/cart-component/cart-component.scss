@@ -1,82 +1,104 @@
-*{
-    margin: 15px;
+* {
+  margin: 15px;
 }
 
-.cart-list{
+.cart-list {
+  background-color: lightgray;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.item-legend {
+  display: grid;
+  margin-left: 50px;
+  grid-template-columns: minmax(100px, 200px) minmax(100px, 380px) minmax(100px, 400px) minmax(
+      100px,
+      400px
+    );
+  font-size: 24px;
+}
+
+.cart-button-remove,
+.cart-button-add {
+  width: 30px;
+  font-size: 30px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 8px;
+  &:hover {
+    background-color: aliceblue;
+  }
+  &:active {
     background-color: lightgray;
-    border-radius: 8px;
-    border: 1px solid black;
+  }
 }
 
-.cart-button-remove, .cart-button-add{
-    width: 30px;
-    font-size: 30px;
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 8px;
-    &:hover {
-      background-color: aliceblue;
-    }
-    &:active {
-      background-color: lightgray;
-    }
+.cart-item {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 80px minmax(100px, 400px) minmax(80px, 400px) minmax(60px, 400px) 40px 40px;
+  grid-template-areas: 'image name totalprice quantity button-remove button-add';
+  text-align: center;
+  font-size: 18px;
 }
 
-.cart-item{
-    display: grid;
-    align-items: center;
-    grid-template-columns: 80px minmax(100px, 400px) minmax(80px, 400px) minmax(60px, 400px) 40px 40px;
-    grid-template-areas: 
-    "image name totalprice quantity button-remove button-add";
-    text-align: center;
+.item-image {
+  grid-area: image;
 }
 
-.item-image{
-    grid-area: image;
+.item-name {
+  grid-area: name;
 }
 
-.item-name{
-    grid-area: name;
+.item-totalprice {
+  grid-area: totalprice;
 }
 
-.item-totalprice{
-    grid-area: totalprice;
+.item-quantity {
+  grid-area: quantity;
 }
 
-.item-quantity{
-    grid-area: quantity;
+.cart-button-remove {
+  grid-area: button-remove;
 }
 
-.cart-button-remove{
-    grid-area: button-remove;
-}
-
-.cart-button-add{
-    grid-area: button-add;
+.cart-button-add {
+  grid-area: button-add;
 }
 
 @media screen and (max-width: 600px) {
   .cart-item {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-      "image name"
-      "totalprice quantity"
-      "button-remove button-add";
+    grid-template-areas:
+      'image name'
+      'totalprice quantity'
+      'button-remove button-add';
   }
-  .cart-button-remove, .cart-button-add{
+  .cart-button-remove,
+  .cart-button-add {
     width: 100px;
-}
+  }
+  .item-legend {
+    display: none;
+  }
 }
 
-.button-clear-cart, .button-checkout{
-    height: 30px;
-    width: 200px;
-    border: 1px solid black;
-    border-radius: 8px;
-    &:hover {
-      background-color: aliceblue;
-    }
-    &:active {
-      background-color: lightgray;
-    }
+.button-clear-cart,
+.button-checkout {
+  height: 30px;
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 8px;
+  &:hover {
+    background-color: aliceblue;
+  }
+  &:active {
+    background-color: lightgray;
+  }
+}
+
+hr {
+  border: 1px black solid;
+  margin: 0;
+  border-radius: 8px;
 }

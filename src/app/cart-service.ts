@@ -1,10 +1,12 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { CartItem, Product } from './Interfaces/interface';
+import { NotificationService } from './notification-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
+  private notificationService = inject(NotificationService);
   cartItems = signal<CartItem[]>([]);
   addToCart(product: Product){
     const exists = this.cartItems().some(function(item){
@@ -60,5 +62,6 @@ export class CartService {
   }
   clearCart(){
     this.cartItems.set([]);
+    this.notificationService.show("Warenkorb wurde geleert.");
   }
 }
